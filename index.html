@@ -41,147 +41,14 @@
             line-height: 1.6;
         }
         
-        .preloader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--dark-bg);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-        }
-        
-        .preloader-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .logo-animation {
-            width: 120px;
-            height: 120px;
-            position: relative;
-            margin-bottom: 30px;
-        }
-        
-        .logo-circle {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            border: 3px solid transparent;
-            border-top-color: var(--accent-color);
-            animation: spin 1.5s linear infinite;
-            position: absolute;
-        }
-        
-        .logo-circle:nth-child(2) {
-            width: 100px;
-            height: 100px;
-            top: 10px;
-            left: 10px;
-            border-top-color: #3b82f6;
-            animation-duration: 2s;
-            animation-direction: reverse;
-        }
-        
-        .logo-circle:nth-child(3) {
-            width: 80px;
-            height: 80px;
-            top: 20px;
-            left: 20px;
-            border-top-color: #10b981;
-            animation-duration: 1s;
-        }
-        
-        .logo-text {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 24px;
-            font-weight: 700;
-            color: white;
-        }
-        
-        .loading-bar {
-            width: 200px;
-            height: 4px;
-            background: rgba(255, 255, 255, 0.2);
-            margin-bottom: 15px;
-            border-radius: 2px;
-            overflow: hidden;
-        }
-        
-        .loading-progress {
-            height: 100%;
-            width: 0;
-            background: linear-gradient(to right, var(--accent-color), #3b82f6);
-            animation: loading 3s ease-in-out forwards;
-        }
-        
-        .loading-status {
-            color: white;
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-        
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        
-        @keyframes loading {
-            0% { width: 0; }
-            50% { width: 60%; }
-            100% { width: 100%; }
-        }
-        .profile-image img {
-    width:200px;
-    height:200px;
-}
-        .loading-container {
-            min-height: 100vh;
-            padding: 50px 20px;
-            background: linear-gradient(135deg, var(--light-bg) 0%, #e2e8f0 100%);
-            position: relative;
-            overflow: hidden;
-            display: none;
-        }
-        
-        .car-animation {
-            position: fixed;
-            bottom: 50px;
-            left: -150px;
-            z-index: 1;
-            animation: driveCar 15s linear infinite;
-            filter: drop-shadow(0 10px 8px rgba(0, 0, 0, 0.04)) drop-shadow(0 4px 3px rgba(0, 0, 0, 0.1));
-        }
-        
-        @keyframes driveCar {
-            from { left: -150px; }
-            to { left: calc(100% + 150px); }
-        }
-        
-        .loading-content {
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
             background-color: var(--card-bg);
             border-radius: var(--border-radius);
             box-shadow: var(--shadow);
-            width: 100%;
-            max-width: 1100px;
-            margin: 0 auto;
-            z-index: 2;
-            position: relative;
             overflow: hidden;
-            transition: var(--transition);
-        }
-        
-        .loading-content:hover {
-            box-shadow: var(--hover-shadow);
+            position: relative;
         }
         
         .header-bg {
@@ -196,7 +63,6 @@
             position: absolute;
             width: 100%;
             height: 100%;
-            background-image: url('/api/placeholder/1100/200');
             background-size: cover;
             background-position: center;
             opacity: 0.2;
@@ -205,7 +71,7 @@
         .header-content {
             position: relative;
             padding: 0 40px;
-            margin-top: -56px;
+            margin-top: -62px;
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
@@ -234,23 +100,12 @@
             overflow: hidden;
         }
         
-        .profile-image::after {
-            content: "";
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
-            top: -50%;
-            left: -50%;
-            transform: rotate(45deg);
-        }
-        
         .profile-title {
             padding-bottom: 20px;
         }
         
         .profile-title h1 {
-            color: #ffffff;
+            color: var(--secondary-color);
             font-size: 32px;
             font-weight: 700;
             margin-bottom: 5px;
@@ -423,6 +278,17 @@
         
         .experience-header {
             margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        
+        .experience-date {
+            color: var(--primary-color);
+            font-weight: 500;
+            font-size: 14px;
+            white-space: nowrap;
+            padding-left: 10px;
         }
         
         .experience-title {
@@ -477,6 +343,73 @@
             margin-right: 6px;
         }
         
+        .education-item {
+            padding: 20px;
+            border-radius: var(--border-radius);
+            background-color: white;
+            margin-bottom: 20px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            border-left: 3px solid var(--primary-color);
+        }
+        
+        .education-item:hover {
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transform: translateY(-3px);
+        }
+        
+        .education-header {
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        
+        .education-date {
+            color: var(--primary-color);
+            font-weight: 500;
+            font-size: 14px;
+            white-space: nowrap;
+            padding-left: 10px;
+        }
+        
+        .education-title {
+            font-weight: 600;
+            color: var(--secondary-color);
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+        
+        .education-school {
+            color: var(--primary-color);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+        }
+        
+        .education-school i {
+            margin-right: 8px;
+            color: var(--accent-color);
+        }
+        
+        .education-details {
+            list-style: none;
+        }
+        
+        .education-details li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 8px;
+        }
+        
+        .education-details li::before {
+            content: "✓";
+            color: var(--accent-color);
+            position: absolute;
+            left: 0;
+            font-weight: 600;
+        }
+        
         .contact-info {
             display: flex;
             flex-direction: column;
@@ -520,13 +453,26 @@
             padding: 20px;
             font-size: 14px;
         }
-        
+        .profile-image img {
+    width: 200px;
+    height: 200px;
+}
+
+.profile-title h1 {
+    color: #fff;
+}
+
+.profile-title {
+    padding-top: 5px;
+}
         @media (max-width: 992px) {
             .profile-sections {
                 grid-template-columns: 1fr;
                 gap: 20px;
             }
-            
+            .profile-title h1 {
+    color: #1e3a8a;
+}
             .header-content {
                 flex-direction: column;
                 align-items: center;
@@ -558,9 +504,23 @@
                 display: block;
                 text-align: center;
             }
+            
+            .experience-header, .education-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .experience-date, .education-date {
+                padding-left: 0;
+                margin-top: 5px;
+            }
         }
         
         @media (max-width: 768px) {
+            .container {
+                margin: 20px;
+            }
+            
             .main-content, .header-content {
                 padding: 20px;
             }
@@ -568,190 +528,184 @@
             .profile-overview {
                 padding: 20px;
             }
-            
-            .contact-buttons {
-                flex-direction: column;
-            }
         }
-        
-        .animated {
-            animation: fadeInUp 0.8s ease forwards;
-            opacity: 0;
-        }
-        
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .delay-1 { animation-delay: 0.2s; }
-        .delay-2 { animation-delay: 0.4s; }
-        .delay-3 { animation-delay: 0.6s; }
-        .delay-4 { animation-delay: 0.8s; }
-        .delay-5 { animation-delay: 1s; }
     </style>
 </head>
 <body>
-    <!-- Preloader -->
-    <div class="preloader">
-        <div class="preloader-content">
-            <div class="logo-animation">
-                <div class="logo-circle"></div>
-                <div class="logo-circle"></div>
-                <div class="logo-circle"></div>
-                <div class="logo-text">NTB</div>
-            </div>
-            <div class="loading-bar">
-                <div class="loading-progress"></div>
-            </div>
-            <div class="loading-status">ĐANG TẢI HỒ SƠ</div>
-        </div>
-    </div>
-
-    <!-- Main Content -->
-    <div class="loading-container">
-        <div class="loading-content">
-            <div class="header-bg"></div>
-            <div class="header-content">
-                <div class="profile-header animated delay-1">
-                    <div class="profile-image"><img src="avatar.jpg" alt=""></div>
-                    <div class="profile-title">
-                        <h1>NGUYỄN THẾ BẰNG</h1>
-                        <h2>Cố Vấn Dịch Vụ Ô Tô</h2>
-                    </div>
+    <div class="container">
+        <div class="header-bg"></div>
+        
+        <div class="header-content">
+            <div class="profile-header">
+                <div class="profile-image">
+                    <img src="avatar.jpg" alt="">
                 </div>
-                
-                <div class="contact-buttons animated delay-1">
-                    <a href="mailto:nguyenthebang653@gmail.com" class="contact-btn">
-                        <i class="fas fa-envelope"></i> Liên Hệ
-                    </a>
-                    <a href="tel:0865861725" class="contact-btn">
-                        <i class="fas fa-phone"></i> Gọi Ngay
-                    </a>
+                <div class="profile-title">
+                    <h1>NGUYỄN THẾ BẰNG</h1>
+                    <h2>Cố Vấn Dịch Vụ Ô Tô</h2>
                 </div>
             </div>
             
-            <div class="main-content">
-                <div class="profile-overview animated delay-2">
-                    <h3 class="section-title">TỔNG QUAN BẢN THÂN</h3>
-                    <p>Chuyên viên cố vấn dịch vụ sửa chữa ô tô với hơn 3 năm kinh nghiệm trong ngành, bao gồm 1 năm 6 tháng làm cố vấn dịch vụ và 6 tháng thực hành sửa chữa trực tiếp. Có nền tảng kiến thức kỹ thuật vững chắc kết hợp với kỹ năng tư vấn chuyên nghiệp. Thành thạo các công cụ văn phòng và các ứng dụng AI hỗ trợ công việc. Luôn hướng đến sự hài lòng của khách hàng và giải pháp tối ưu cho từng trường hợp.</p>
-                </div>
-                
-                <div class="profile-sections">
-                    <div class="section-left">
-                        <div class="section animated delay-3">
-                            <h3><i class="fas fa-cogs"></i> KỸ NĂNG CHUYÊN MÔN</h3>
-                            <div class="skill-list">
-                                <div class="skill-tag"><i class="fas fa-check-circle"></i> Tư vấn dịch vụ sửa chữa ô tô</div>
-                                <div class="skill-tag"><i class="fas fa-check-circle"></i> Chẩn đoán lỗi kỹ thuật</div>
-                                <div class="skill-tag"><i class="fas fa-check-circle"></i> Lập kế hoạch bảo dưỡng</div>
-                                <div class="skill-tag"><i class="fas fa-check-circle"></i> Quản lý dịch vụ khách hàng</div>
-                            </div>
-                        </div>
+            <div class="contact-buttons">
+                <a href="mailto:nguyenthebang653@gmail.com" class="contact-btn">
+                    <i class="fas fa-envelope"></i> Liên Hệ
+                </a>
+                <a href="tel:0865861725" class="contact-btn">
+                    <i class="fas fa-phone"></i> Gọi Ngay
+                </a>
+            </div>
+        </div>
+        
+        <div class="main-content">
+            <div class="profile-overview">
+                <h3 class="section-title">TỔNG QUAN BẢN THÂN</h3>
+                <p>Chuyên viên cố vấn dịch vụ sửa chữa ô tô với hơn 2 năm kinh nghiệm trong ngành, bao gồm 1 năm 6 tháng làm cố vấn dịch vụ và 6 tháng thực hành sửa chữa trực tiếp. Có nền tảng kiến thức kỹ thuật vững chắc kết hợp với kỹ năng tư vấn chuyên nghiệp. Thành thạo các công cụ văn phòng và các ứng dụng AI hỗ trợ công việc. Luôn hướng đến sự hài lòng của khách hàng và giải pháp tối ưu cho từng trường hợp.</p>
+            </div>
+            
+            <div class="profile-sections">
+                <div class="section-left">
+                    <div class="section">
+                        <h3><i class="fas fa-briefcase"></i> KINH NGHIỆM LÀM VIỆC</h3>
                         
-                        <div class="section animated delay-3">
-                            <h3><i class="fas fa-tools"></i> KỸ NĂNG KỸ THUẬT</h3>
-                            <div class="skill-list">
-                                <div class="skill-tag"><i class="fas fa-check-circle"></i> Hiểu biết về kỹ thuật ô tô</div>
-                                <div class="skill-tag"><i class="fas fa-check-circle"></i> Quy trình bảo dưỡng, sửa chữa</div>
-                            </div>
-                        </div>
-                        
-                        <div class="section animated delay-4">
-                            <h3><i class="fas fa-briefcase"></i> KINH NGHIỆM LÀM VIỆC</h3>
-                            <div class="experience-item">
-                                <div class="experience-header">
+                        <div class="experience-item">
+                            <div class="experience-header">
+                                <div>
                                     <div class="experience-title">CỐ VẤN DỊCH VỤ SỬA CHỮA Ô TÔ</div>
                                     <div class="experience-company"><i class="fas fa-building"></i> Công ty cổ phần Ô tô TMT</div>
                                 </div>
-                                <ul class="experience-duties">
-                                    <li>Trực tiếp sửa chữa oto</li>
-                                    <li>Bảo dưỡng định kỳ và thay thế phụ tùng theo quy trình kỹ thuật</li>
-                                    <li>Thực hiện kiểm tra, chuẩn đoán và sửa chữa các hư hỏng của xe ô tô</li>
-                                    <li>Ghi chép và báo cáo chi tiết về tình trạng xe và các công việc đã thực hiện</li>
-                                    <li>Tư vấn và giải thích cho khách hàng về tình trạng xe và các dịch vụ sửa chữa cần thiết</li>
-                                </ul>
-                                <div class="achievement"><i class="fas fa-award"></i> Đạt trên 90% đánh giá tích cực từ khách hàng</div>
+                                <div class="experience-date">5/2023 - 5/2025</div>
                             </div>
+                            <ul class="experience-duties">
+                                <li>Lên lịch hẹn với khách hàng</li>
+                                <li>Chào hỏi, tiếp đón khách hàng</li>
+                                <li>Kiểm tra, tiếp nhận thông tin nhu cầu sửa chữa của khách hàng</li>
+                                <li>Kết hợp với quản đốc, KTV xác định nguyên nhân, lên phương án sửa chữa</li>
+                                <li>Tư vấn và giải thích cho khách hàng về tình trạng xe và các dịch vụ sửa chữa cần thiết</li>
+                                <li>Lên báo giá chi phí sửa chữa, thời gian dự kiến bàn giao xe</li>
+                                <li>Theo dõi tiến độ, chất lượng dịch vụ sửa chữa</li>
+                                <li>Bàn giao xe cho khách hàng</li>
+                            </ul>
+                            <div class="achievement"><i class="fas fa-award"></i> Đạt trên 90% đánh giá tích cực từ khách hàng</div>
+                        </div>
+                        
+                        <div class="experience-item">
+                            <div class="experience-header">
+                                <div>
+                                    <div class="experience-title">KỸ THUẬT VIÊN</div>
+                                    <div class="experience-company"><i class="fas fa-building"></i> Công ty cổ phần Ô tô TMT</div>
+                                </div>
+                                <div class="experience-date">5/2022 - 5/2023</div>
+                            </div>
+                            <ul class="experience-duties">
+                                <li>Tiếp nhận thông tin sự cố của xe từ quản đốc hoặc từ cố vấn dịch vụ</li>
+                                <li>Tiến hành kiểm tra chuẩn đoán xác định nguyên nhân sự cố</li>
+                                <li>Lên phương án sửa chữa, bảo dưỡng và thông báo cho quản đốc và cố vấn dịch vụ</li>
+                                <li>Tiến hành sửa chữa, thay thế theo lệnh sửa chữa</li>
+                                <li>Báo cáo quản đốc sau khi đã sửa chữa thay thế xong</li>
+                                <li>Vệ sinh đơn dẹp đồ nghề và khu vực làm việc</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="experience-item">
+                            <div class="experience-header">
+                                <div>
+                                    <div class="experience-title">THỦ KHO PHỤ TÙNG</div>
+                                    <div class="experience-company"><i class="fas fa-building"></i> Công ty cổ phần Ô tô TMT</div>
+                                </div>
+                                <div class="experience-date">9/2024 - 5/2025</div>
+                            </div>
+                            <ul class="experience-duties">
+                                <li>Kiểm soát số lượng phụ tùng trong kho</li>
+                                <li>Lên đơn đặt phụ tùng</li>
+                                <li>Kiểm tra chất lượng phụ tùng</li>
+                                <li>Cấp phụ tùng cho KTV sửa chữa, bảo dưỡng</li>
+                            </ul>
                         </div>
                     </div>
                     
-                    <div class="section-right">
-                        <div class="section animated delay-3">
-                            <h3><i class="fas fa-handshake"></i> KỸ NĂNG MỀM</h3>
-                            <div class="skill-list">
-                                <div class="skill-tag"><i class="fas fa-comments"></i> Giao tiếp hiệu quả</div>
-                                <div class="skill-tag"><i class="fas fa-lightbulb"></i> Giải quyết vấn đề</div>
-                                <div class="skill-tag"><i class="fas fa-users"></i> Làm việc nhóm</div>
-                                <div class="skill-tag"><i class="fas fa-clock"></i> Quản lý thời gian</div>
+                    <div class="section">
+                        <h3><i class="fas fa-graduation-cap"></i> HỌC VẤN</h3>
+                        <div class="education-item">
+                            <div class="education-header">
+                                <div>
+                                    <div class="education-title">KỸ THUẬT CƠ KHÍ/ CHUYÊN NGÀNH KỸ THUẬT Ô TÔ</div>
+                                    <div class="education-school"><i class="fas fa-university"></i> Đại học Thủy Lợi</div>
+                                </div>
+                                <div class="education-date">2018 - 2022</div>
                             </div>
+                            <ul class="education-details">
+                                <li>Làm lớp phó học tập trong 4 năm học đại học</li>
+                                <li>Đạt học học bổng loại khá và loại giỏi ở năm học thứ 3</li>
+                            </ul>
                         </div>
-                        
-                        <div class="section animated delay-4">
-                            <h3><i class="fas fa-laptop-code"></i> KỸ NĂNG TIN HỌC</h3>
-                            <div class="skill-list">
-                                <div class="skill-tag"><i class="fas fa-file-word"></i> Microsoft Word</div>
-                                <div class="skill-tag"><i class="fas fa-file-excel"></i> Microsoft Excel</div>
-                                <div class="skill-tag"><i class="fas fa-file-powerpoint"></i> Microsoft PowerPoint</div>
-                                <div class="skill-tag"><i class="fas fa-robot"></i> Công cụ AI hỗ trợ</div>
+                    </div>
+                </div>
+                
+                <div class="section-right">
+                    <div class="section">
+                        <h3><i class="fas fa-cogs"></i> KỸ NĂNG CHUYÊN MÔN</h3>
+                        <div class="skill-list">
+                            <div class="skill-tag"><i class="fas fa-check-circle"></i> Tư vấn dịch vụ sửa chữa ô tô</div>
+                            <div class="skill-tag"><i class="fas fa-check-circle"></i> Chẩn đoán lỗi kỹ thuật</div>
+                            <div class="skill-tag"><i class="fas fa-check-circle"></i> Lập kế hoạch bảo dưỡng</div>
+                            <div class="skill-tag"><i class="fas fa-check-circle"></i> Quản lý dịch vụ khách hàng</div>
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        <h3><i class="fas fa-tools"></i> KỸ NĂNG KỸ THUẬT</h3>
+                        <div class="skill-list">
+                            <div class="skill-tag"><i class="fas fa-check-circle"></i> Hiểu biết về kỹ thuật ô tô</div>
+                            <div class="skill-tag"><i class="fas fa-check-circle"></i> Quy trình bảo dưỡng, sửa chữa</div>
+                            <div class="skill-tag"><i class="fas fa-check-circle"></i> Sửa chữa trực tiếp ô tô</div>
+                            <div class="skill-tag"><i class="fas fa-check-circle"></i> Quản lý kho phụ tùng</div>
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        <h3><i class="fas fa-handshake"></i> KỸ NĂNG MỀM</h3>
+                        <div class="skill-list">
+                            <div class="skill-tag"><i class="fas fa-comments"></i> Giao tiếp hiệu quả</div>
+                            <div class="skill-tag"><i class="fas fa-lightbulb"></i> Giải quyết vấn đề</div>
+                            <div class="skill-tag"><i class="fas fa-users"></i> Làm việc nhóm</div>
+                            <div class="skill-tag"><i class="fas fa-clock"></i> Quản lý thời gian</div>
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        <h3><i class="fas fa-laptop-code"></i> KỸ NĂNG TIN HỌC</h3>
+                        <div class="skill-list">
+                            <div class="skill-tag"><i class="fas fa-file-word"></i> Microsoft Word</div>
+                            <div class="skill-tag"><i class="fas fa-file-excel"></i> Microsoft Excel</div>
+                            <div class="skill-tag"><i class="fas fa-file-powerpoint"></i> Microsoft PowerPoint</div>
+                            <div class="skill-tag"><i class="fas fa-robot"></i> Công cụ AI hỗ trợ</div>
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        <h3><i class="fas fa-address-card"></i> THÔNG TIN LIÊN HỆ</h3>
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <span>nguyenthebang653@gmail.com</span>
                             </div>
-                        </div>
-                        
-                        <div class="section animated delay-4">
-                            <h3><i class="fas fa-address-card"></i> THÔNG TIN LIÊN HỆ</h3>
-                            <div class="contact-info">
-                                <div class="contact-item">
-                                    <i class="fas fa-envelope"></i>
-                                    <span>nguyenthebang653@gmail.com</span>
-                                </div>
-                                <div class="contact-item">
-                                    <i class="fas fa-phone-alt"></i>
-                                    <span>0865861725</span>
-                                </div>
-                                <div class="contact-item">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                    <span>Thủy Xuân Tiên - Chương Mỹ - Hà Nội</span>
-                                </div>
+                            <div class="contact-item">
+                                <i class="fas fa-phone-alt"></i>
+                                <span>0865861725</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Thủy Xuân Tiên - Chương Mỹ - Hà Nội</span>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            
-            <div class="footer animated delay-5">
-                &copy; 2025 Nguyễn Thế Bằng - Cố Vấn Dịch Vụ Ô Tô Chuyên Nghiệp
-            </div>
+        </div>
+        
+        <div class="footer">
+            &copy; 2025 Nguyễn Thế Bằng - Cố Vấn Dịch Vụ Ô Tô Chuyên Nghiệp
         </div>
     </div>
-    
-    <script>
-        // Simulate loading process
-        setTimeout(() => {
-            document.querySelector('.loading-status').textContent = 'ĐANG TẢI THÔNG TIN';
-            setTimeout(() => {
-                document.querySelector('.loading-status').textContent = 'ĐANG CHUẨN BỊ HỒ SƠ';
-                setTimeout(() => {
-                    document.querySelector('.loading-status').textContent = 'HOÀN TẤT';
-                    
-                    // Hide preloader and show content after complete loading
-                    setTimeout(() => {
-                        document.querySelector('.preloader').style.opacity = '0';
-                        document.querySelector('.preloader').style.transition = 'opacity 0.5s ease';
-                        document.querySelector('.loading-container').style.display = 'block';
-                        
-                        setTimeout(() => {
-                            document.querySelector('.preloader').style.display = 'none';
-                        }, 500);
-                    }, 500);
-                }, 800);
-            }, 1000);
-        }, 1200);
-    </script>
 </body>
 </html>
